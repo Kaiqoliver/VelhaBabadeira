@@ -1,0 +1,20 @@
+from Posicao import *
+from Megatabuleiro import *
+
+tabteste = Tabuleiro()
+tabteste.imprime()
+print()
+tabteste.marcar(0,0,"X")
+tabteste.imprime()
+print()
+tabteste.marcar(0,1,"X")
+tabteste.imprime()
+print()
+tabteste.marcar(0,2,"X")
+tabteste.imprime()
+print()
+tabteste.imprime()
+tabteste.marcar(0,0,"X")
+print(tabteste.venceu())
+print(tabteste.vencedor)
+print(tabteste.vencido)
