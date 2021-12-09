@@ -1,4 +1,4 @@
-from Posicao import *
+from Tabuleiro import *
 from Megatabuleiro import *
 
 megatab = Mega_Tabuleiro()

@@ -37,10 +37,10 @@ class Tabuleiro:
 		else:
 			if self.vencido == True:
 				print("Esse tabuleiro já possui um vencedor ;)")
-				#return(-1)
+				return(-1)
 			else:
 				print("Essa casa já está marcada")
-				#return(-2)
+				return(-2)
 
 		self.venceu()
 		if self.vencido:
@@ -67,8 +67,8 @@ class Tabuleiro:
 				self.jogo[2][2].conteudo = "O"
 
 			print(f"O {self.vencedor} ganhou o tabuleiro {self.nomeTAB}.")
-			#return(1)
-		#return(0)
+			return(1)
+		return(0)
 
 	def venceu(self):
 		c00 = self.jogo[0][0].conteudo
