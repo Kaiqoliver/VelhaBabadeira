@@ -1,3 +1,5 @@
+import random
+
 class Posicao:
 	'''Simula as posições de um tabuleiro de jogo da velha'''
 	def __init__(self):
@@ -34,6 +36,7 @@ class Tabuleiro:
 		# self.venceu()
 		if not self.jogo[x][y].alterou and not self.vencido:
 			self.jogo[x][y].marcar(conteudo)
+			self.venceu()
 		else:
 			if self.vencido == True:
 				print("Esse tabuleiro já possui um vencedor ;)")
@@ -41,8 +44,17 @@ class Tabuleiro:
 			else:
 				print("Essa casa já está marcada")
 				return(-2)
+		
+		if self.deu_velha():
+			if random.random() >= 0.5:
+				self.vencedor = "X"
+				self.vencido = True
+			else:
+				self.vencedor = "O"
+				self.vencido = True
+			
+			print(f"O tabuleiro {self.nomeTAB} deu velha vamos sortear um vencedor")
 
-		self.venceu()
 		if self.vencido:
 			if self.vencedor == "X":
 				self.jogo[0][0].conteudo = "X"
@@ -86,7 +98,7 @@ class Tabuleiro:
 				self.vencido = True
 				self.vencedor = c00
 		elif(c10 != " " and c11 != " " and c12 != " "):
-			if (c10 == c11 and c00 == c12):
+			if (c10 == c11 and c10 == c12):
 				self.vencido = True
 				self.vencedor = c10
 		elif(c20 != " " and c21 != " " and c22 != " "):
@@ -125,3 +137,13 @@ class Tabuleiro:
 					print(f"{self.jogo[i][j].conteudo}", end = "|")
 			print("|")
 		print("(+=====+)")
+
+	def deu_velha(self):
+		if self.vencido:
+			return False
+
+		for i in range(3):
+			for j in range(3):
+				if not self.jogo[i][j].alterou:
+					return(False)
+		return True
