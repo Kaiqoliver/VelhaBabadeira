@@ -12,8 +12,10 @@ vez2 = False
 while (not tabteste.vencido):
     jogador1.jogada()
     tabteste.imprimirTotal()
+    tabteste.imprime()
     jogador2.jogada()
     tabteste.imprimirTotal()
+    tabteste.imprime()
 
 
 #print()

@@ -18,13 +18,23 @@ class Mega_Tabuleiro(Tabuleiro):
     def mega_marcar(self, a, b, x, y, conteudo):
         if not self.vencido:
             res = self.jogao[a][b].marcar(x, y, conteudo)
-            if self.jogao[a][b].vencido:
+            # sortear vencedor caso dê velha
+            if self.jogao[a][b].deu_velha():
+                self.jogao[a][b].vencido = True
+                if random.random() < 0.5:
+                    self.jogao[a][b].vencedor = "X"
+                else:
+                    self.jogao[a][b].vencedor = "O"
+                self.jogao[a][b].desenha_vencedor()
+            # marcar o mini tabuleiro que representa o tabuleirão
+            if self.jogao[a][b].vencido and not self.jogo[a][b].alterou:
                 self.marcar(a, b, self.jogao[a][b].vencedor)
-        self.venceu()
+                print(self.jogao[a][b].vencido)
+                self.venceu()
+                print(self.jogao[a][b].vencido)
         if self.vencido:
             print(f"O jogo terminou com o {self.vencedor} como vencedor do Mega Jogo da Velha")
 
-        return res
    
     def imprimirTotal(self):
         c00 = self.jogao[0][0].jogo

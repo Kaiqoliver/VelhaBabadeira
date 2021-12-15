@@ -37,24 +37,22 @@ class Tabuleiro:
 		if not self.jogo[x][y].alterou and not self.vencido:
 			self.jogo[x][y].marcar(conteudo)
 			self.venceu()
+			self.desenha_vencedor()
+			#print(self.vencido)
 		else:
 			if self.vencido == True:
+				#print(self.vencido)
 				print("Esse tabuleiro já possui um vencedor ;)")
-				return(-1)
+				#return(-1)
 			else:
 				print("Essa casa já está marcada")
-				return(-2)
+				print(self.golbal)
+				#print(self.vencido)	
+				#return(-2)
 		
-		if self.deu_velha():
-			if random.random() >= 0.5:
-				self.vencedor = "X"
-				self.vencido = True
-			else:
-				self.vencedor = "O"
-				self.vencido = True
-			
-			print(f"O tabuleiro {self.nomeTAB} deu velha vamos sortear um vencedor")
+		#return(0)
 
+	def desenha_vencedor(self):
 		if self.vencido:
 			if self.vencedor == "X":
 				self.jogo[0][0].conteudo = "X"
@@ -66,7 +64,6 @@ class Tabuleiro:
 				self.jogo[2][0].conteudo = "X"
 				self.jogo[2][1].conteudo = " "
 				self.jogo[2][2].conteudo = "X"
-			
 			elif self.vencedor == "O":
 				self.jogo[0][0].conteudo = "O"
 				self.jogo[0][1].conteudo = "O"
@@ -77,10 +74,6 @@ class Tabuleiro:
 				self.jogo[2][0].conteudo = "O"
 				self.jogo[2][1].conteudo = "O"
 				self.jogo[2][2].conteudo = "O"
-
-			print(f"O {self.vencedor} ganhou o tabuleiro {self.nomeTAB}.")
-			return(1)
-		return(0)
 
 	def venceu(self):
 		c00 = self.jogo[0][0].conteudo
@@ -97,34 +90,37 @@ class Tabuleiro:
 			if (c00 == c01 and c00 == c02):
 				self.vencido = True
 				self.vencedor = c00
-		elif(c10 != " " and c11 != " " and c12 != " "):
+		if (c10 != " " and c11 != " " and c12 != " "):
 			if (c10 == c11 and c10 == c12):
 				self.vencido = True
 				self.vencedor = c10
-		elif(c20 != " " and c21 != " " and c22 != " "):
+		if(c20 != " " and c21 != " " and c22 != " "):
 			if (c20 == c21 and c20 == c22):
 				self.vencido = True
 				self.vencedor = c20
-		elif(c00 != " " and c10 != " " and c20 != " "):
+		if(c00 != " " and c10 != " " and c20 != " "):
 			if (c00 == c10 and c00 == c20):
 				self.vencido = True
 				self.vencedor = c00
-		elif(c01 != " " and c11 != " " and c21 != " "):
+		if(c01 != " " and c11 != " " and c21 != " "):
 			if (c01 == c11 and c01 == c21):
 				self.vencido = True
 				self.vencedor = c01
-		elif(c02 != " " and c12 != " " and c22 != " "):
+		if(c02 != " " and c12 != " " and c22 != " "):
 			if (c02 == c12 and c02 == c22):
 				self.vencido = True
 				self.vencedor = c02
-		elif(c00 != " " and c11 != " " and c22 != " " ):
+		if(c00 != " " and c11 != " " and c22 != " " ):
 			if (c00 == c11 and c00 == c22):
 				self.vencido = True
 				self.vencedor = c00
-		elif(c02 != " " and c11 != " " and c20 != " "):
+		if(c02 != " " and c11 != " " and c20 != " "):
 			if (c02 == c11 and c02 == c20):
 				self.vencido = True
 				self.vencedor = c02
+		if self.vencido:
+			print(f"O {self.vencedor} ganhou o tabuleiro {self.nomeTAB}.")
+
 	
 	def imprime(self):
 		print("(+=====+)")
