@@ -1,6 +1,6 @@
-from Tabuleiro import *
-from Megatabuleiro import *
-from Jogadores import *
+from classes.Tabuleiro import *
+from classes.Megatabuleiro import *
+from classes.Jogadores import *
 
 tabteste = Mega_Tabuleiro()
 tabteste.imprimirTotal()

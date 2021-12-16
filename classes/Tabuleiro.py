@@ -10,6 +10,9 @@ class Posicao:
 		if not self.alterou:
 			self.conteudo = desenho
 			self.alterou = True
+			return 0
+		print("Esta posição já está marcada")
+		return -1
 
 	#def vazio(self):
 	#	return(not self.alterou)
@@ -26,31 +29,29 @@ class Tabuleiro:
 		p20 = Posicao()
 		p21 = Posicao()
 		p22 = Posicao()
-		#self.jogo = [[Posicao(),Posicao(),Posicao()],[Posicao(),Posicao(),Posicao()],[Posicao(),Posicao(),Posicao()]]
 		self.jogo = [[p00,p01,p02],[p10,p11,p12],[p20,p21,p22]]
 		self.vencido = False
 		self.vencedor = " "
 		self.nomeTAB = nome
 
 	def marcar(self, x, y, conteudo):
-		# self.venceu()
-		if not self.jogo[x][y].alterou and not self.vencido:
-			self.jogo[x][y].marcar(conteudo)
+		# checar se posição existe
+		if not 0 <= x < 3 or not 0 <= y < 3:
+			return -3
+		# marca no tabuleiro
+		if not self.vencido and not self.deu_velha():
+			res = self.jogo[x][y].marcar(conteudo)
 			self.venceu()
 			self.desenha_vencedor()
+			return res
+		# 
+		if self.vencido == True:
 			#print(self.vencido)
-		else:
-			if self.vencido == True:
-				#print(self.vencido)
-				print("Esse tabuleiro já possui um vencedor ;)")
-				#return(-1)
-			else:
-				print("Essa casa já está marcada")
-				print(self.golbal)
-				#print(self.vencido)	
-				#return(-2)
+			print("Esse tabuleiro já possui um vencedor ;)")
+			return -2
+		print("O tabuleiro já deu velha")
+		return -4
 		
-		#return(0)
 
 	def desenha_vencedor(self):
 		if self.vencido:
@@ -74,6 +75,18 @@ class Tabuleiro:
 				self.jogo[2][0].conteudo = "O"
 				self.jogo[2][1].conteudo = "O"
 				self.jogo[2][2].conteudo = "O"
+
+		elif self.deu_velha():
+				self.jogo[0][0].conteudo = "#"
+				self.jogo[0][1].conteudo = "#"
+				self.jogo[0][2].conteudo = "#"
+				self.jogo[1][0].conteudo = "#"
+				self.jogo[1][1].conteudo = "#"
+				self.jogo[1][2].conteudo = "#"
+				self.jogo[2][0].conteudo = "#"
+				self.jogo[2][1].conteudo = "#"
+				self.jogo[2][2].conteudo = "#"
+
 
 	def venceu(self):
 		c00 = self.jogo[0][0].conteudo
