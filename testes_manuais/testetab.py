@@ -1,7 +1,7 @@
 import sys
 # insert at 1, 0 is the script path (or '' in REPL)
-sys.path.insert(1, './classes')
-from Tabuleiro import *
+sys.path.insert(1, '.')
+from classes.Tabuleiro import *
 
 tabteste = Tabuleiro("tabteste")
 tabteste.imprime()
