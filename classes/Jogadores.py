@@ -46,8 +46,9 @@ class Humano(Jogador):
 
 
 class Estabanado(Jogador):
-    def __init__(self, nome, simbolo, mega_tabuleiro):
+    def __init__(self, nome, simbolo, mega_tabuleiro, semente):
         Jogador.__init__(self,nome, simbolo, mega_tabuleiro)
+        random.seed(semente)
     
     def jogada(self):
         coordenadas = {(0,0): 1, (0,1): 2, (0,2): 3,

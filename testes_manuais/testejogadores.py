@@ -21,6 +21,8 @@ while (not tabteste.vencido):
     input()
     turno += 1
 
+print(turno)
+
 
 
 #print()

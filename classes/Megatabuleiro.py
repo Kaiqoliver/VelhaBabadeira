@@ -1,7 +1,6 @@
 import sys
 sys.path.insert(1, '.')
 from classes.Tabuleiro import *
-import pytest
 
 class Mega_Tabuleiro(Tabuleiro):
     '''Simula um Mega Jogo da Velha '''
