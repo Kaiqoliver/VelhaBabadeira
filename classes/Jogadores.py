@@ -82,15 +82,15 @@ class ComeCru(Jogador):
         Jogador.__init__(self,nome, simbolo, mega_tabuleiro)
 
     def jogada(self):
-        c00 = self.mega_tabuleiro.jogao[0][0].jogo
-        c01 = self.mega_tabuleiro.jogao[0][1].jogo
-        c02 = self.mega_tabuleiro.jogao[0][2].jogo 
-        c10 = self.mega_tabuleiro.jogao[1][0].jogo
-        c11 = self.mega_tabuleiro.jogao[1][1].jogo
-        c12 = self.mega_tabuleiro.jogao[1][2].jogo
-        c20 = self.mega_tabuleiro.jogao[2][0].jogo
-        c21 = self.mega_tabuleiro.jogao[2][1].jogo
-        c22 = self.mega_tabuleiro.jogao[2][2].jogo
+        c00 = self.mega_tabuleiro.jogao[0][0]
+        c01 = self.mega_tabuleiro.jogao[0][1]
+        c02 = self.mega_tabuleiro.jogao[0][2]
+        c10 = self.mega_tabuleiro.jogao[1][0]
+        c11 = self.mega_tabuleiro.jogao[1][1]
+        c12 = self.mega_tabuleiro.jogao[1][2]
+        c20 = self.mega_tabuleiro.jogao[2][0]
+        c21 = self.mega_tabuleiro.jogao[2][1]
+        c22 = self.mega_tabuleiro.jogao[2][2]
         
         tabzao = [[c00,c01,c02], 
                   [c10,c11,c12],
@@ -104,7 +104,7 @@ class ComeCru(Jogador):
             for j in range(3):
                 for a in range(3):
                     for b in range(3):
-                        if not tabzao[i][a][j][b].alterou:
+                        if not tabzao[i][a].jogo[j][b].alterou and not tabzao[i][a].vencido:
                             print(f"O jogador {self.nome} jogará no tabuleiro {coordenadas[(i,a)]} na posição {coordenadas[(j,b)]}: ")
                             print()
                             return self.joga(i, a, j, b)
