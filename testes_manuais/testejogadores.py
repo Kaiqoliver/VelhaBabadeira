@@ -1,21 +1,26 @@
-from classes.Tabuleiro import *
+import sys
+sys.path.insert(1, '.')
 from classes.Megatabuleiro import *
+from classes.Tabuleiro import *
 from classes.Jogadores import *
 
 tabteste = Mega_Tabuleiro()
 tabteste.imprimirTotal()
-jogador1 =  Humano("pedrinho", "O", tabteste)
-jogador2 =  Humano("kaiquinho","X",tabteste)
+jogador1 =  ComeCru("pedrinho", "O", tabteste)
+jogador2 =  ComeCru("kaiquinho","X",tabteste)
 
-vez1 = True
-vez2 = False
+turno = 1
 while (not tabteste.vencido):
-    jogador1.jogada()
+    if (turno % 2 == 1):
+        jogador1.jogada()
+    else:
+        jogador2.jogada()
     tabteste.imprimirTotal()
+    print()
     tabteste.imprime()
-    jogador2.jogada()
-    tabteste.imprimirTotal()
-    tabteste.imprime()
+    input()
+    turno += 1
+
 
 
 #print()
@@ -34,7 +39,3 @@ while (not tabteste.vencido):
 ##tabteste.marcar(0,0,"X")
 #jogador1.jogada()
 #tabteste.imprimirTotal()
-
-print(tabteste.venceu())
-print(tabteste.vencedor)
-print(tabteste.vencido)

@@ -1,5 +1,7 @@
-from Tabuleiro import *
-from Megatabuleiro import *
+import sys
+sys.path.insert(1, '.')
+from classes.Megatabuleiro import *
+from classes.Tabuleiro import *
 import random
 
 class Jogador:
@@ -10,7 +12,8 @@ class Jogador:
         self.mega_tabuleiro = mega_tabuleiro
 
     def joga(self, a, b, x, y):
-        self.mega_tabuleiro.mega_marcar(a, b, x, y, self.simbolo)
+        res = self.mega_tabuleiro.mega_marcar(a, b, x, y, self.simbolo)
+        return res
 
 class Humano(Jogador):
     def __init__(self, nome, simbolo, mega_tabuleiro):
@@ -22,11 +25,24 @@ class Humano(Jogador):
                        7: (2,0), 8: (2,1), 9: (2,2)}
         
         tab = int(input("Em qual tabuleiro será a jogada? "))
+        while (not 1 <= tab <= 9):
+            tab = int(input("Dê um tabuleiro entre 1 e 9: "))
+        
         coo = int(input("Qual a posição da jogada no mini tabuleiro? "))
+        while (not 1 <= coo <= 9):
+            coo = int(input("Dê uma posição entre 1 e 9: "))
         print()
         
-        self.joga(coordenadas[tab][0], coordenadas[tab][1], coordenadas[coo][0], coordenadas[coo][1])
         # checar se é válida
+        while(self.joga(coordenadas[tab][0], coordenadas[tab][1], coordenadas[coo][0], coordenadas[coo][1]) in {-1, -2}):
+            print("Faça uma jogada válida!")
+            tab = int(input("Em qual tabuleiro será a jogada? "))
+            while (not 1 <= tab <= 9):
+                tab = int(input("Dê um tabuleiro entre 1 e 9: "))
+            coo = int(input("Qual a posição da jogada no mini tabuleiro? "))
+            while (not 1 <= coo <= 9):
+                coo = int(input("Dê uma posição entre 1 e 9: "))
+            print()
 
 
 class Estabanado(Jogador):
@@ -93,4 +109,3 @@ class ComeCru(Jogador):
                             print()
                             return self.joga(i, a, j, b)
                     
-    

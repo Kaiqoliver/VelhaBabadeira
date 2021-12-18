@@ -135,7 +135,7 @@ class Tabuleiro:
 				self.vencido = True
 				self.vencedor = c02
 		if self.vencido:
-			print(f"O {self.vencedor} ganhou o tabuleiro {self.nomeTAB}.")
+			print(f"{self.vencedor} ganhou o tabuleiro {self.nomeTAB}.")
 
 	
 	def imprime(self):

@@ -35,12 +35,13 @@ class Mega_Tabuleiro(Tabuleiro):
             # marcar o mini tabuleiro que representa o tabuleirão
             if self.jogao[a][b].vencido: 
                 self.marcar(a, b, self.jogao[a][b].vencedor)
-                self.venceu()
         if self.vencido:
             print(f"O jogo terminou com o {self.vencedor} como vencedor do Mega Jogo da Velha")
-            return -2
+            return -5
         # c.c., deu velha
-        return -4
+        if self.deu_velha():
+            return -4
+        return res
 
    
     def imprimirTotal(self):
