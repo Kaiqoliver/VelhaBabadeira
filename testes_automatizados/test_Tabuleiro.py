@@ -3,18 +3,18 @@ sys.path.insert(1, '.')
 from classes.Tabuleiro import *
 import pytest
 
-def test_marca_inexistente():
+def test_marcar_inexistente():
     tab = Tabuleiro("Tabteste")
     res = tab.marcar(4, 4, "X")
     assert res == -3
 
-def test_marca_repetido():
+def test_marcar_repetido():
     tab = Tabuleiro("Tabteste")
     tab.marcar(0, 0, "X")
     res = tab.marcar(0, 0, "O")
     assert res == -1 
 
-def test_marca_velha():
+def test_marcar_velha():
     tab = Tabuleiro("Tabteste")
     tab.marcar(0, 0, "X")
     tab.marcar(0, 1, "O")
@@ -47,7 +47,7 @@ def test_deu_velha():
     tab.marcar(2, 1, "X")
     assert tab.deu_velha()
 
-def test_marca_tabuleiro_vencido():
+def test_marcar_tabuleiro_vencido():
     tab = Tabuleiro("Tabteste")
     tab.marcar(0, 0, "X")
     tab.marcar(0, 1, "O")

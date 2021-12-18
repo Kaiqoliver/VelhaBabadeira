@@ -1,4 +1,7 @@
-from Tabuleiro import *
+import sys
+sys.path.insert(1, '.')
+from classes.Tabuleiro import *
+import pytest
 
 class Mega_Tabuleiro(Tabuleiro):
     '''Simula um Mega Jogo da Velha '''
@@ -16,7 +19,10 @@ class Mega_Tabuleiro(Tabuleiro):
         self.jogao = [[tab00,tab01,tab02],[tab10,tab11,tab12],[tab20,tab21,tab22]]
     
     def mega_marcar(self, a, b, x, y, conteudo):
-        if not self.vencido:
+        if not 0 <= a < 3 or not 0 <= b < 3:
+            return -3 
+
+        if not self.vencido and not self.deu_velha():
             res = self.jogao[a][b].marcar(x, y, conteudo)
             # sortear vencedor caso dê velha
             if self.jogao[a][b].deu_velha():
@@ -27,13 +33,14 @@ class Mega_Tabuleiro(Tabuleiro):
                     self.jogao[a][b].vencedor = "O"
                 self.jogao[a][b].desenha_vencedor()
             # marcar o mini tabuleiro que representa o tabuleirão
-            if self.jogao[a][b].vencido and not self.jogo[a][b].alterou:
+            if self.jogao[a][b].vencido: 
                 self.marcar(a, b, self.jogao[a][b].vencedor)
-                print(self.jogao[a][b].vencido)
                 self.venceu()
-                print(self.jogao[a][b].vencido)
         if self.vencido:
             print(f"O jogo terminou com o {self.vencedor} como vencedor do Mega Jogo da Velha")
+            return -2
+        # c.c., deu velha
+        return -4
 
    
     def imprimirTotal(self):

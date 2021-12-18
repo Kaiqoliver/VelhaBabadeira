@@ -99,6 +99,9 @@ class Tabuleiro:
 		c21 = self.jogo[2][1].conteudo
 		c22 = self.jogo[2][2].conteudo
 
+		if (c00 == "#"):
+			return
+
 		if (c00 != " " and c01 != " " and c02 != " "):
 			if (c00 == c01 and c00 == c02):
 				self.vencido = True

@@ -1,5 +1,8 @@
-from classes.Tabuleiro import *
+import sys
+sys.path.insert(1, '.')
 from classes.Megatabuleiro import *
+from classes.Tabuleiro import *
+import pytest
 
 megatab = Mega_Tabuleiro()
 
