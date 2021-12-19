@@ -107,7 +107,7 @@ class ComeCru(Jogador):
             for j in range(3):
                 for a in range(3):
                     for b in range(3):
-                        if not tabzao[i][a].jogo[j][b].alterou and not tabzao[i][a].vencido:
+                        if not self.mega_tabuleiro.jogao[i][a].jogo[j][b].alterou and not self.mega_tabuleiro.jogao[i][a].vencido:
                             print(f"O jogador {self.nome} jogará no tabuleiro {coordenadas[(i,a)]} na posição {coordenadas[(j,b)]}: ")
                             return self.joga(i, a, j, b)
                     
