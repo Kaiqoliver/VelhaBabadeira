@@ -11,6 +11,7 @@ class Posicao:
 			self.conteudo = desenho
 			self.alterou = True
 			return 0
+		print()
 		print("Esta posição já está marcada")
 		return -1
 
@@ -32,6 +33,7 @@ class Tabuleiro:
 		self.jogo = [[p00,p01,p02],[p10,p11,p12],[p20,p21,p22]]
 		self.vencido = False
 		self.vencedor = " "
+		self.velhado = False
 		self.nomeTAB = nome
 
 	def marcar(self, x, y, conteudo):
@@ -39,9 +41,10 @@ class Tabuleiro:
 		if not 0 <= x < 3 or not 0 <= y < 3:
 			return -3
 		# marca no tabuleiro
-		if not self.vencido and not self.deu_velha():
+		if not self.vencido and not self.velhado:
 			res = self.jogo[x][y].marcar(conteudo)
 			self.venceu()
+			self.deu_velha()
 			self.desenha_vencedor()
 			return res
 		# 
@@ -152,10 +155,10 @@ class Tabuleiro:
 
 	def deu_velha(self):
 		if self.vencido:
-			return False
-
+			return self.velhado
 		for i in range(3):
 			for j in range(3):
 				if not self.jogo[i][j].alterou:
-					return(False)
-		return True
+					return self.velhado
+		self.velhado = True
+		return self.velhado

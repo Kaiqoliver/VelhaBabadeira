@@ -21,10 +21,10 @@ class Mega_Tabuleiro(Tabuleiro):
         if not 0 <= a < 3 or not 0 <= b < 3:
             return -3 
 
-        if not self.vencido and not self.deu_velha():
+        if not self.vencido and not self.velhado:
             res = self.jogao[a][b].marcar(x, y, conteudo)
             # sortear vencedor caso dê velha
-            if self.jogao[a][b].deu_velha():
+            if self.jogao[a][b].velhado:
                 self.jogao[a][b].vencido = True
                 if random.random() < 0.5:
                     self.jogao[a][b].vencedor = "X"
@@ -38,7 +38,7 @@ class Mega_Tabuleiro(Tabuleiro):
             print(f"O jogo terminou com o {self.vencedor} como vencedor do Mega Jogo da Velha")
             return -5
         # c.c., deu velha
-        if self.deu_velha():
+        if self.velhado:
             return -4
         return res
 
