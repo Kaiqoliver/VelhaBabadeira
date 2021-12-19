@@ -80,7 +80,7 @@ def test_mega_marcar_mega_tabuleiro_vencido():
     mtab.mega_marcar(0, 2, 1, 1, "X")
     mtab.mega_marcar(0, 2, 2, 0, "X")
     res = mtab.mega_marcar(1, 0, 0, 0, "X")
-    assert res == -2
+    assert res == -5
 
 def test_mega_marcar_mega_tabuleiro_velhado():
     mtab = Mega_Tabuleiro()
