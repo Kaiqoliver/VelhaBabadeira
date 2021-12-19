@@ -75,7 +75,7 @@ class Estabanado(Jogador):
         coo = random.randint(0, len(livreMicro)-1)
         x, y = livreMicro[coo]
 
-        print(f"O jogador {self.nome} jogará no tabuleiro {coordenadas[(a,b)]} na posição {coordenadas[(x,y)]} (Pressione ENTER): ", end = "")
+        print(f"O jogador {self.nome} jogará no tabuleiro {coordenadas[(a,b)]} na posição {coordenadas[(x,y)]} (Pressione ENTER): ")
         self.joga(a, b, x, y)
 
 class ComeCru(Jogador):
