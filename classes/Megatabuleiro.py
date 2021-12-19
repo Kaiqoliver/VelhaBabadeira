@@ -44,20 +44,6 @@ class Mega_Tabuleiro(Tabuleiro):
 
    
     def imprimirTotal(self):
-        c00 = self.jogao[0][0].jogo
-        c01 = self.jogao[0][1].jogo
-        c02 = self.jogao[0][2].jogo 
-        c10 = self.jogao[1][0].jogo
-        c11 = self.jogao[1][1].jogo
-        c12 = self.jogao[1][2].jogo
-        c20 = self.jogao[2][0].jogo
-        c21 = self.jogao[2][1].jogo
-        c22 = self.jogao[2][2].jogo
-        
-        tabzao = [[c00,c01,c02], 
-                  [c10,c11,c12],
-                  [c20,c21,c22]]
-                  
         for i in range(3):
             print("(+=====++=====++=====+)")
             for j in range(3):
@@ -65,7 +51,7 @@ class Mega_Tabuleiro(Tabuleiro):
                 for a in range(3):
                     print("|",end="")
                     for b in range(3):
-                        print(f"{tabzao[i][a][j][b].conteudo}|", end ="")
+                        print(f"{self.jogao[i][a].jogo[j][b].conteudo}|", end ="")
                     #print("|",end="")
                 print("|",end="")
                 print()

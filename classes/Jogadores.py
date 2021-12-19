@@ -76,7 +76,6 @@ class Estabanado(Jogador):
         x, y = livreMicro[coo]
 
         print(f"O jogador {self.nome} jogará no tabuleiro {coordenadas[(a,b)]} na posição {coordenadas[(x,y)]} (Pressione ENTER): ", end = "")
-        input()
         self.joga(a, b, x, y)
 
 class ComeCru(Jogador):
@@ -85,20 +84,6 @@ class ComeCru(Jogador):
         self.tipo = "ComeCru"
 
     def jogada(self):
-        c00 = self.mega_tabuleiro.jogao[0][0]
-        c01 = self.mega_tabuleiro.jogao[0][1]
-        c02 = self.mega_tabuleiro.jogao[0][2]
-        c10 = self.mega_tabuleiro.jogao[1][0]
-        c11 = self.mega_tabuleiro.jogao[1][1]
-        c12 = self.mega_tabuleiro.jogao[1][2]
-        c20 = self.mega_tabuleiro.jogao[2][0]
-        c21 = self.mega_tabuleiro.jogao[2][1]
-        c22 = self.mega_tabuleiro.jogao[2][2]
-        
-        tabzao = [[c00,c01,c02], 
-                  [c10,c11,c12],
-                  [c20,c21,c22]]
-
         coordenadas = {(0,0): 1, (0,1): 2, (0,2): 3,
                        (1,0): 4, (1,1): 5, (1,2): 6,
                        (2,0): 7, (2,1): 8, (2,2): 9}
