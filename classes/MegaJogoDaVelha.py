@@ -33,23 +33,31 @@ class Jogo:
         turno = 1
         opcoes = ""
         while (not self.megaTab.vencido and not self.megaTab.velhado):
-            self.megaTab.imprimirTotal()
-            print()
             # Perguntar a cada 10 turnos se desejam Resetar ou Finalizar
             if turno % 10 == 0:
                 opcoes = input("Pressione ENTER para próximo turno, ou digite \"RECOMEÇAR\" para recomeçar o jogo, ou \"FINALIZAR\" para terminar o jogo: ")
                 print()
                 if opcoes == "RECOMEÇAR":
                     turno = 1
+                    opcoes = ""
                     self.recomecar()
                     self.megaTab.imprimirTotal()
                     print()
                 elif opcoes == "FINALIZAR":
                     break
             if (turno % 2 == 1):
+                # Adiciona pressionar ENTER para ver jogada de jogadores automaticos
+                if turno > 1 and self.jogador2.tipo in {"Estabanado", "ComeCru"} and turno+1 % 10 != 0:
+                    input()
+                self.megaTab.imprimirTotal()
+                print()
                 print(f"TURNO {turno}: vez de {self.jogador1.nome}")
                 self.jogador1.jogada()
             else:
+                if self.jogador1.tipo in {"Estabanado", "ComeCru"} and turno+1 % 10 != 0:
+                    input()
+                self.megaTab.imprimirTotal()
+                print()
                 print(f"TURNO {turno}: vez de {self.jogador2.nome}")
                 self.jogador2.jogada()
             turno += 1

@@ -20,6 +20,7 @@ def main():
     print()
     nome2 = input("Nome do Jogador 2: ")
     tipo2 = input("Tipo do Jogador 2: ")
+    print()
     print(f"{tudo_pronto}\n")
     mjv = Jogo(tipo1, nome1, tipo2, nome2)
     mjv.jogar()

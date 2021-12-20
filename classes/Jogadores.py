@@ -75,7 +75,7 @@ class Estabanado(Jogador):
         coo = random.randint(0, len(livreMicro)-1)
         x, y = livreMicro[coo]
 
-        print(f"O jogador {self.nome} jogará no tabuleiro {coordenadas[(a,b)]} na posição {coordenadas[(x,y)]} (Pressione ENTER): ")
+        print(f"O jogador {self.nome} jogará no tabuleiro {coordenadas[(a,b)]} na posição {coordenadas[(x,y)]} (Pressione ENTER): ", end = "")
         self.joga(a, b, x, y)
 
 class ComeCru(Jogador):
@@ -93,6 +93,6 @@ class ComeCru(Jogador):
                 for a in range(3):
                     for b in range(3):
                         if not self.mega_tabuleiro.jogao[i][a].jogo[j][b].alterou and not self.mega_tabuleiro.jogao[i][a].vencido:
-                            print(f"O jogador {self.nome} jogará no tabuleiro {coordenadas[(i,a)]} na posição {coordenadas[(j,b)]}: ")
+                            print(f"O jogador {self.nome} jogará no tabuleiro {coordenadas[(i,a)]} na posição {coordenadas[(j,b)]} (Pressione ENTER): ", end = "")
                             return self.joga(i, a, j, b)
                     
