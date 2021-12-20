@@ -32,7 +32,6 @@ class Humano(Jogador):
         coo = int(input("Qual a posição da jogada no mini tabuleiro? "))
         while (not 1 <= coo <= 9):
             coo = int(input("Dê uma posição entre 1 e 9: "))
-        
         # checar se é válida
         while(self.joga(coordenadas[tab][0], coordenadas[tab][1], coordenadas[coo][0], coordenadas[coo][1]) in {-1, -2}):
             print("Faça uma jogada válida!")
@@ -43,6 +42,7 @@ class Humano(Jogador):
             coo = int(input("Qual a posição da jogada no mini tabuleiro? "))
             while (not 1 <= coo <= 9):
                 coo = int(input("Dê uma posição entre 1 e 9: "))
+        
 
 
 class Estabanado(Jogador):
@@ -75,7 +75,7 @@ class Estabanado(Jogador):
         coo = random.randint(0, len(livreMicro)-1)
         x, y = livreMicro[coo]
 
-        print(f"O jogador {self.nome} jogará no tabuleiro {coordenadas[(a,b)]} na posição {coordenadas[(x,y)]} (Pressione ENTER): ", end = "")
+        print(f"O jogador {self.nome} jogou no tabuleiro {coordenadas[(a,b)]} na posição {coordenadas[(x,y)]}")
         self.joga(a, b, x, y)
 
 class ComeCru(Jogador):
@@ -93,6 +93,6 @@ class ComeCru(Jogador):
                 for a in range(3):
                     for b in range(3):
                         if not self.mega_tabuleiro.jogao[i][a].jogo[j][b].alterou and not self.mega_tabuleiro.jogao[i][a].vencido:
-                            print(f"O jogador {self.nome} jogará no tabuleiro {coordenadas[(i,a)]} na posição {coordenadas[(j,b)]} (Pressione ENTER): ", end = "")
+                            print(f"O jogador {self.nome} jogou no tabuleiro {coordenadas[(i,a)]} na posição {coordenadas[(j,b)]}")
                             return self.joga(i, a, j, b)
                     

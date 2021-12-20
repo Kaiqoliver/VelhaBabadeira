@@ -5,5 +5,5 @@ from classes.Tabuleiro import *
 from classes.Jogadores import *
 from classes.MegaJogoDaVelha import *
 
-jogo = Jogo("ComeCru", "kaninho", "Estabanado", "kaiquinho")
+jogo = Jogo("Estabanado", "kaninho", "Estabanado", "kaiquinho","Tradicional")
 jogo.jogar()

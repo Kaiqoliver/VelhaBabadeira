@@ -39,6 +39,9 @@ class Mega_Tabuleiro(Tabuleiro):
             return -5
         # c.c., deu velha
         if self.velhado:
+            print()
+            print()
+            print("O Megatabuleiro deu velha")
             return -4
         return res
 
