@@ -9,9 +9,9 @@ import random
 def main():
     bv = "Bem-vinde ao Mega Jogo da Velha!\n\nO Tabuleiro sera mapeado da seguinte forma:\n(+=====+)\n||1|2|3||\n||4|5|6||\n||7|8|9||\n(+=====+)"
 
-    opcoes_de_jogadores = "Agora, escolha seus dois jogadores entre as opcoes: Humano, Estabanado, ComeCru"
+    opcoes_de_jogadores = "Agora, escolha seus dois jogadores entre as opcoes: Humano, Estabanado, ComeCru."
     
-    tipo_do_jogo = "Agora, escolha uma categoria de jogo: Tradicional ou Random"
+    tipo_do_jogo = "Agora, escolha uma categoria de jogo: Tradicional ou Random."
 
     tudo_pronto = "Tudo pronto! O jogo sera iniciado. A cada 10 turnos, o jogo podera ser recomeçado, mantendo as opcoes de jogadores, ou finalizado, para terminar o programa."
 
@@ -36,7 +36,12 @@ def main():
         tipo_jogo = input("Tipo de jogo: ") 
     print(f"{tudo_pronto}\n")
     print()
-    mjv = Jogo(tipo1, nome1, tipo2, nome2, tipo_jogo)
+    if tipo_jogo == "Random":
+        mjv = Random(tipo1, nome1, tipo2, nome2)
+    
+    else:
+        mjv = Tradicional(tipo1, nome1, tipo2, nome2)
+        
     mjv.jogar()
     
 if __name__ == "__main__":

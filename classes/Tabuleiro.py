@@ -52,7 +52,7 @@ class Tabuleiro:
 			#print(self.vencido)
 			print("Esse tabuleiro já possui um vencedor ;)")
 			return -2
-		print("O tabuleiro já deu velha")
+		print("O tabuleiro já deu velha.")
 		return -4
 		
 

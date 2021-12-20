@@ -35,13 +35,14 @@ class Mega_Tabuleiro(Tabuleiro):
             if self.jogao[a][b].vencido: 
                 self.marcar(a, b, self.jogao[a][b].vencedor)
         if self.vencido:
-            print(f"O jogo terminou com o {self.vencedor} como vencedor do Mega Jogo da Velha")
+            print()
+            print(f"O jogo terminou com o {self.vencedor} como vencedor do Mega Jogo da Velha.")
             return -5
         # c.c., deu velha
         if self.velhado:
             print()
             print()
-            print("O Megatabuleiro deu velha")
+            print("O Megatabuleiro deu velha.")
             return -4
         return res
 
