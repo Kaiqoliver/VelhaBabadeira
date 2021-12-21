@@ -6,6 +6,7 @@ Um Ultimate tic-tac-toe (ou Mega Jogo-da-velha), como descrito [aqui](https://en
 * [Contribuintes](#contribuintes)
 * [Detalhes do jogo](#detalhes-do-jogo)
 * [Informações gerais](#informações-gerais)
+* [Setup](#setup)
 
 ## Contribuintes
 * Kaique Nunes de Oliveira NUSP12542244
@@ -52,3 +53,14 @@ VelhaBabadeira contém 4 arquivos destinados a classes, 3 arquivos destinados a 
   E em _MegaJogoDaVelha.py_ construímos a interface básica do jogo com o usuário, assim como a alternância de turnos e opções para se escolher durante um jogo.
   
   Finalmente, em _jogo.py_ pudemos contar com cada um dos objetos para iniciar um Mega jogo-da-velha de acordo com as entradas do usuário.
+
+## Setup
+Para jogá-lo, basta clonar o repositório em seu computador numa pasta desejada:
+```
+git clone https://github.com/Kaiqoliver/VelhaBabadeira
+```
+e executar o jogo dentro da pasta instalada usando Python3:
+```
+cd VelhaBabadeira
+python3 jogo.py
+```
