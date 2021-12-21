@@ -111,7 +111,7 @@ class Random(Jogo):
                     print()
                 #self.megaTab.imprimirTotal()
                 print()
-                print(f"TURNO {turno}: vez de {self.jogador1.nome}")
+                print(f"TURNO {turno}: vez de {self.jogador1.nome}({self.jogador1.simbolo})")
                 self.jogador1.jogada()
                 self.megaTab.imprimirTotal()
             else:
@@ -122,10 +122,10 @@ class Random(Jogo):
                     print()
                 #self.megaTab.imprimirTotal()
                 print()
-                print(f"TURNO {turno}: vez de {self.jogador2.nome}")
+                print(f"TURNO {turno}: vez de {self.jogador2.nome}({self.jogador2.simbolo})")
                 self.jogador2.jogada()
                 self.megaTab.imprimirTotal()
             turno += 1
-        print(f"{self.jogador1.nome} jogou {cont1} vezes.")
-        print(f"{self.jogador2.nome} jogou {cont2} vezes.")
+        print(f"{self.jogador1.nome}({self.jogador1.simbolo}) jogou {cont1} vezes.")
+        print(f"{self.jogador2.nome}({self.jogador2.simbolo}) jogou {cont2} vezes.")
     
