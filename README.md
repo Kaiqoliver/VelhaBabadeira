@@ -34,6 +34,10 @@ Este jogador sorteará uma posição livre do tabuleiro para marcar no seu turno
 
 Este jogador marcará a primeira posição livre de um tabuleiro no seu turno.
 
+* Humano
+
+Este jogador recebe o comando direto do usuário pelo terminal para marcar alguma posição no tabuleiro.
+
 ## Informações Gerais
 VelhaBabadeira contém 4 arquivos destinados a classes, 3 arquivos destinados a testes automatizados com o Pytest e 4 arquivos que foram utilizados para
  testes manuais, além do programa principal, _jogo.py_.
