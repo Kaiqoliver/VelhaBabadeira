@@ -56,27 +56,24 @@ class Tradicional(Jogo):
                     break
             if (turno % 2 == 1):
                 # Adiciona pressionar ENTER para ver jogada de jogadores automaticos
-                if turno > 1 and self.jogador2.tipo in {"Estabanado", "ComeCru"} and turno % 10 != 0:
+                if turno > 1 and self.jogador1.tipo in {"Estabanado", "ComeCru"} and turno % 10 != 0:
                     input()
-                if self.jogador2.tipo == "Humano":
+                if self.jogador1.tipo == "Humano":
                     print()
-                #self.megaTab.imprimirTotal()
                 print()
                 print(f"TURNO {turno}: vez de {self.jogador1.nome}")
                 self.jogador1.jogada()
                 self.megaTab.imprimirTotal()
             else:
-                if self.jogador1.tipo in {"Estabanado", "ComeCru"} and turno % 10 != 0:
+                if turno > 1 and self.jogador2.tipo in {"Estabanado", "ComeCru"} and turno % 10 != 0:
                     input()
-                if self.jogador1.tipo == "Humano":
+                if self.jogador2.tipo == "Humano":
                     print()
-                #self.megaTab.imprimirTotal()
                 print()
                 print(f"TURNO {turno}: vez de {self.jogador2.nome}")
                 self.jogador2.jogada()
                 self.megaTab.imprimirTotal()
             turno += 1
-        #self.megaTab.imprimirTotal()
     
             
 class Random(Jogo):
@@ -109,21 +106,19 @@ class Random(Jogo):
                     input()
                 if self.jogador2.tipo == "Humano":
                     print()
-                #self.megaTab.imprimirTotal()
-                print()
-                print(f"TURNO {turno}: vez de {self.jogador1.nome}")
-                self.jogador1.jogada()
-                self.megaTab.imprimirTotal()
-            else:
-                cont1 += 1
-                if self.jogador1.tipo in {"Estabanado", "ComeCru"} and turno % 10 != 0:
-                    input()
-                if self.jogador1.tipo == "Humano":
-                    print()
-                #self.megaTab.imprimirTotal()
                 print()
                 print(f"TURNO {turno}: vez de {self.jogador2.nome}")
                 self.jogador2.jogada()
+                self.megaTab.imprimirTotal()
+            else:
+                cont1 += 1
+                if turno > 1 and self.jogador1.tipo in {"Estabanado", "ComeCru"} and turno % 10 != 0:
+                    input()
+                if self.jogador1.tipo == "Humano":
+                    print()
+                print()
+                print(f"TURNO {turno}: vez de {self.jogador1.nome}")
+                self.jogador1.jogada()
                 self.megaTab.imprimirTotal()
             turno += 1
         print(f"{self.jogador1.nome} jogou {cont1} vezes.")
