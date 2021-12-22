@@ -13,7 +13,7 @@ def main():
     
     tipo_do_jogo = "Agora, escolha uma categoria de jogo: Tradicional ou Random."
 
-    tudo_pronto = "Tudo pronto! O jogo sera iniciado. A cada 10 turnos, o jogo podera ser recomeçado, mantendo as opcoes de jogadores, ou finalizado, para terminar o programa."
+    tudo_pronto = "Tudo pronto! O jogo sera iniciado (apos ver cada tabuleiro, pressione ENTER para a jogada). A cada 10 turnos, o jogo podera ser recomeçado, mantendo as opcoes de jogadores, ou finalizado, para terminar o programa."
 
     print(f"{bv}\n")
     print(f"{opcoes_de_jogadores}\n")
@@ -34,8 +34,8 @@ def main():
     while not tipo_jogo in {"Tradicional", "Random"}:
         print("Escolha um formato válido")
         tipo_jogo = input("Tipo de jogo: ") 
-    print(f"{tudo_pronto}\n")
     print()
+    print(f"{tudo_pronto}\n")
     if tipo_jogo == "Random":
         mjv = Random(tipo1, nome1, tipo2, nome2)
     

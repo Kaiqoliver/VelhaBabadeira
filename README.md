@@ -1,5 +1,5 @@
 # VelhaBabadeira - EP4 MAC0216
-Um Ultimate tic-tac-toe (ou Mega Jogo-da-velha), como descrito [aqui](https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe), para terminal, com duas opções de jogo:
+Um [Ultimate tic-tac-toe](https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe) (ou Mega Jogo-da-velha) para terminal, com duas opções de jogo:
  Tradicional ou Random, e duas opções de jogadores automáticos: Estabanado ou Come-Crú, além do jogador Humano.
 
 ## Tabela de Conteúdos
@@ -7,6 +7,7 @@ Um Ultimate tic-tac-toe (ou Mega Jogo-da-velha), como descrito [aqui](https://en
 * [Detalhes do jogo](#detalhes-do-jogo)
 * [Informações gerais](#informações-gerais)
 * [Setup](#setup)
+* [Imagens do projeto](#imagens-do-projeto)
 
 ## Contribuintes
 * Kaique Nunes de Oliveira NUSP12542244
@@ -32,6 +33,10 @@ Este jogador sorteará uma posição livre do tabuleiro para marcar no seu turno
 * Come-Crú
 
 Este jogador marcará a primeira posição livre de um tabuleiro no seu turno.
+
+* Humano
+
+Este jogador recebe o comando direto do usuário pelo terminal para marcar alguma posição no tabuleiro.
 
 ## Informações Gerais
 VelhaBabadeira contém 4 arquivos destinados a classes, 3 arquivos destinados a testes automatizados com o Pytest e 4 arquivos que foram utilizados para
@@ -64,3 +69,15 @@ e executar o jogo dentro da pasta instalada usando Python3:
 cd VelhaBabadeira
 python3 jogo.py
 ```
+## Imagens do Projeto
+* Início de jogo e configurações:
+
+![opcoes](https://github.com/Kaiqoliver/VelhaBabadeira/blob/master/assets/Opcoes.png?raw=true)
+
+* Durante turnos:
+
+![turnos](https://github.com/Kaiqoliver/VelhaBabadeira/blob/master/assets/EstabanadoJogou.png?raw=true)
+
+* Fim de jogo:
+
+![fim](https://github.com/Kaiqoliver/VelhaBabadeira/blob/master/assets/FimDeJogo.png?raw=true)
